@@ -17,5 +17,13 @@ To create this database, it is important to outline all components of the databa
 
 Once the database is created, a simple get() command can be used to garner the results.
 
+<img width="690" alt="Screenshot 2022-12-19 at 9 39 21 AM" src="https://user-images.githubusercontent.com/112578035/208451139-d389dd0d-bba2-4b3a-8378-b11ed8fe6d9f.png">
+
+By using Swagger UI, a user is able to try and execute commands accordingly.
+
+<img width="1439" alt="Screenshot 2022-12-19 at 9 39 43 AM" src="https://user-images.githubusercontent.com/112578035/208451158-06454678-04b8-409f-b4f5-f3ee33cb9b4e.png">
+
+<img width="1435" alt="Screenshot 2022-12-19 at 9 40 33 AM" src="https://user-images.githubusercontent.com/112578035/208451211-25cb499d-d341-4749-a533-df1560d7131a.png">
+
 ### Future Work
 From a future work perspective, it is my hope to use this deployment for capturing input from the user. At the moment, it is static as it returns query results. However, it would be great to get input from the user in regards to cuisine, region, etc. and providing a list back to the user.
