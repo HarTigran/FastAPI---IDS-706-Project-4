@@ -29,9 +29,9 @@ cursor.execute(restaurants_table)
 insert = "INSERT INTO michelin_star_restaurants(name,year,latitude,longitude,city,region,zipCode,cuisine,price,url) VALUES (?,?,?,?,?,?,?,?,?,?)"
 
 ## Open the csv files
-one_star_file = open("/Users/sukhpreetsahota/Desktop/Duke/Fall 2022/IDS 706.01.F22/Week 13/FastAPI---IDS-706-Project-4/one-star-michelin-restaurants.csv")
-two_star_file = open("/Users/sukhpreetsahota/Desktop/Duke/Fall 2022/IDS 706.01.F22/Week 13/FastAPI---IDS-706-Project-4/two-stars-michelin-restaurants.csv")
-three_star_file = open("/Users/sukhpreetsahota/Desktop/Duke/Fall 2022/IDS 706.01.F22/Week 13/FastAPI---IDS-706-Project-4/three-stars-michelin-restaurants.csv")
+one_star_file = open("/workspaces/FastAPI---IDS-706-Project-4/one-star-michelin-restaurants.csv")
+two_star_file = open("/workspaces/FastAPI---IDS-706-Project-4/two-stars-michelin-restaurants.csv")
+three_star_file = open("/workspaces/FastAPI---IDS-706-Project-4/three-stars-michelin-restaurants.csv")
 
 ## Read the contents of each of the csv files
 one_star_restaurants = csv.reader(one_star_file)
@@ -111,6 +111,9 @@ uk_french = uk_french.replace("[","")
 uk_french = uk_french.replace("]","")
 uk_french = uk_french.replace("'","")
 
+@app.get("/french_michelin_star_restaurants_in_uk")
+async def root():
+    return {"These are all the Michelin star restaurants that serve French cuisine in the United Kingdom": uk_french}
 
 if __name__ == "__main__":
     uvicorn.run(app, port=8080, host="0.0.0.0")
