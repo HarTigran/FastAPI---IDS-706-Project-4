@@ -4,10 +4,6 @@ click
 ipython
 fastapi
 uvicorn[standard]
-jupyter
-s3fs
 pandas
 faker
 sqlalchemy
-pytest-cov
-python-multipart
