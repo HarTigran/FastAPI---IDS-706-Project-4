@@ -1,11 +1,8 @@
 ## Import libraries
 import sqlite3
 import csv
-import fastapi
 from fastapi import FastAPI
 import uvicorn
-import pandas as pd
-import json
 
 
 ## Create FastAPI get command
@@ -29,9 +26,9 @@ cursor.execute(restaurants_table)
 insert = "INSERT INTO michelin_star_restaurants(name,year,latitude,longitude,city,region,zipCode,cuisine,price,url) VALUES (?,?,?,?,?,?,?,?,?,?)"
 
 ## Open the csv files
-one_star_file = open("/workspaces/FastAPI---IDS-706-Project-4/one-star-michelin-restaurants.csv")
-two_star_file = open("/workspaces/FastAPI---IDS-706-Project-4/two-stars-michelin-restaurants.csv")
-three_star_file = open("/workspaces/FastAPI---IDS-706-Project-4/three-stars-michelin-restaurants.csv")
+one_star_file = open("/workspaces/FastAPI---IDS-706-Project-4/one-star-michelin-restaurants.csv", encoding="utf-8")
+two_star_file = open("/workspaces/FastAPI---IDS-706-Project-4/two-stars-michelin-restaurants.csv", encoding="utf-8")
+three_star_file = open("/workspaces/FastAPI---IDS-706-Project-4/three-stars-michelin-restaurants.csv", encoding="utf-8")
 
 ## Read the contents of each of the csv files
 one_star_restaurants = csv.reader(one_star_file)
@@ -64,7 +61,7 @@ connection.commit()
 
 ## Query Database
 
-print(f"Below are the list of all Michelin Star restaurants:")
+print("Below are the list of all Michelin Star restaurants:")
 all_restaurants = """SELECT * FROM michelin_star_restaurants;"""
 
 restaurants = []
@@ -78,10 +75,10 @@ restaurants = restaurants.replace("]","")
 restaurants = restaurants.replace("'","")
 
 @app.get("/all_restaurants")
-async def root():
+def value():
     return {"These are all the Michelin star restaurants in the world": restaurants}
 
-print(f"Find all restaurants that serve Contemporary cuisine")
+print("Find all restaurants that serve Contemporary cuisine")
 contemporary_restaurants = """SELECT * FROM michelin_star_restaurants WHERE cuisine = 'Contemporary';"""
 
 contemporary = []
@@ -95,10 +92,10 @@ contemporary = contemporary.replace("]","")
 contemporary = contemporary.replace("'","")
 
 @app.get("/contemporary_restaurants")
-async def root():
+def contemporary_cuisine():
     return {"These are all the Michelin star restaurants in the world that serve Contemporary cuisine": restaurants}
 
-print(f"Find restaurants that serve French cuisine in the United Kingdom")
+print("Find restaurants that serve French cuisine in the United Kingdom")
 uk_french_restaurants = """SELECT * FROM michelin_star_restaurants WHERE cuisine = 'French' AND region = 'United Kingdom';"""
 
 uk_french = []
@@ -112,7 +109,7 @@ uk_french = uk_french.replace("]","")
 uk_french = uk_french.replace("'","")
 
 @app.get("/french_michelin_star_restaurants_in_uk")
-async def root():
+def french_uk():
     return {"These are all the Michelin star restaurants that serve French cuisine in the United Kingdom": uk_french}
 
 if __name__ == "__main__":
