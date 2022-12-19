@@ -1,7 +1,5 @@
 pytest
 pylint
-click
-ipython
 fastapi
 uvicorn[standard]
 pandas
