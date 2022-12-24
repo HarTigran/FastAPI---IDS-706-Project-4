@@ -1,7 +1,7 @@
-# pytest
-# pylint
-# fastapi
-# uvicorn[standard]
-# pandas
-# faker
-# sqlalchemy
+pytest
+pylint
+fastapi
+uvicorn[standard]
+pandas
+faker
+sqlalchemy
