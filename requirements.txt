@@ -1,5 +1,5 @@
-pytest
-pylint
+# pytest
+# pylint
 fastapi
 uvicorn[standard]
 pandas
