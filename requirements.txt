@@ -3,5 +3,5 @@ pylint
 fastapi
 uvicorn[standard]
 pandas
-faker
-sqlalchemy
+# faker
+# sqlalchemy
